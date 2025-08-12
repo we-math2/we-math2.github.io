@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--We-Math-->
+  <meta name="description"
+        content="Does Your Large Multimodal Model Achieve Human-like Mathematical Reasoning?">
+  <meta name="keywords" content="We-Math">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>We-Math</title>
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <!--css file-->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/nav.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+  <!-- <link rel="stylesheet" href="static/css/kp-bank.css"> -->
+  <!-- <link rel="stylesheet" href="static/css/atlas.css"> -->
+  <!--html head icon-->
+  <link rel="icon" href="./static/images/icon.png">
+
+
+  <!--js file-->
+  <script type="text/javascript" src="./static/js/sort-table.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/leaderboard.js"></script>  
+  <script src="./static/js/leaderboard_button.js"></script>
+  <script src="./static/js/nav-side.js"></script>
+  <script src="./static/dcl-script.js"></script>
+  <!-- <script src="static/js/kp-bank.js"></script> -->
+  <!-- <script src="static/js/atlas.js"></script> -->
+  
+</head>
+
+<!--start body-->
+<body>
+
+
+<!--guideline-->
+
+
+
+  
+
+
+
+<!--nav content-->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <!--nav menu-->
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <!--click-->
+      <!--
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>-->
+      <!--navbar link-->
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <!--<a class="navbar-item" href="https://github.com/RQ-Lab/OBS-Visual">-->
+          <a class="navbar-item">
+            Future Release
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+<!--title author and link-->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!--main title-->
+          <h1 class="title is-1 publication-title">
+            <!--icon-->
+            
+            <span class="wemath" style="vertical-align: middle">We-Math 2.0</span>
+          </h1>
+          <!--subtitle-->
+          <h2 class="subtitle is-3 publication-subtitle">
+            A Versatile MathBook System for Incentivizing Visual Mathematical Reasoning
+          </h2>
+
+          <!--author link-->
+          <div class="is-size-5 publication-authors">
+            
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Runqi Qiao*<sup style="color:#ff9810;"><b>1</b></sup><sup><b>,</b></sup><sup style="color:#05bb02;"><b>2</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Qiuna Tan*<sup style="color:#ff9810;"><b>1</b></sup><sup><b>,</b></sup><sup style="color:#05bb02;"><b>2</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Peiqing Yang<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Yanzi Wang<sup style="color:#ff5151"><b>3</b></sup></a>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Xiaowan Wang<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Enhui Wan<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Sitong Zhou<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Guanting Dong<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Yuchen Zeng<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Yida Xu<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Jie Wang<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span><br>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Chong Sun<sup style="color:#05bb02;"><b>2</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Chen Li†<sup style="color:#05bb02;"><b>2</b></sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="index.html" style="text-decoration: none; color: inherit;">Honggang Zhang†<sup style="color:#ff9810;"><b>1</b></sup></a>,
+            </span>
+            
+
+          <div style="height:1.0em;"></div>
+
+          </div>
+          
+          <!--author institution-->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup style="color:#ff9810;"><b>1</b></sup>Beijing University of Posts and Telecommunications,</span>
+            <span class="author-block"><sup style="color:#05bb02;"><b>2</b></sup>Wechat, Tencent Inc.,</span>
+            <span class="author-block"><sup style="color:#ff5151"><b>3</b></sup>Tsinghua University</span>
+          </div>
+
+          <div style="height:1.0em;"></div>
+          
+          
+          <!--equal contribution-->
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">*Equal contribution</span><br>
+            <span class="author-block">†Corresponding author</span>
+          </div> -->
+
+          <!--links-->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!--arxiv link-->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2407.01284"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span><b>arXiv</b></span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-video"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/We-Math/We-Math"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span><b>Dataset</b></span>
+                  </a>
+              </span>
+
+
+
+              <span class="link-block">
+                <a href="https://github.com/We-Math/We-Math"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span><b>Code</b></span>
+                  </a>
+              </span>
+
+            
+            <div style="height:0.3em;"></div>
+
+
+              <span class="link-block">
+                <a href="kp-bank.html"
+                   class="external-link button is-normal is-rounded is-dark"
+                   style="background: linear-gradient(90deg,#A2D5C6,#A4CCD9,#F0E4D3); border:none; color: #197676;">
+                   <span class="icon">
+                    <img src="static/imageicon/book3.png" style="height:1.3em;width:1.3em;">
+                  </span>
+                  <span style="font-size:1.12em;"><b>WeMath2-Standard</b></span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="kp-bank.html"
+                   class="external-link button is-normal is-rounded is-dark"
+                   style="background: linear-gradient(90deg,#A2D5C6,#A4CCD9,#F0E4D3); border:none; color: #197676;">
+                   <span class="icon">
+                    <img src="static/imageicon/book2.png" style="height:1.3em;width:1.3em;">
+                  </span>
+                  <span style="font-size:1.12em;"><b>WeMath2-Difficulty</b></span>
+                </a>
+              </span>
+              
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="nav-side" id="nav-side">
+  <div class="nav-group">
+    <a class="nav-link intro-color" href="#">
+      <img src="static/imageicon/book2.png" alt="We-Math Series">
+      <span class="main-title">We-Math Series</span>
+    </a>
+    <a class="nav-link arc-color" href="#about-wemath2">
+      <img src="static/imageicon/book2.png" alt="WeMath 2.0">
+      <span class="main-title">About WeMath 2.0</span>
+    </a>
+    <a class="nav-link edu-color" href="#knowledge">
+      <img src="static/imageicon/book2.png" alt="Knowledge Points">
+      <span class="main-title">Knowledge System</span>
+    </a>
+    <a class="nav-link house-color" href="#standard">
+      <img src="static/imageicon/book3.png" alt="Mathbook-Standard">
+      <span class="main-title">Mathbook-Standard</span>
+    </a>
+    <a class="nav-link social-color" href="#pro">
+      <img src="static/imageicon/book2.png" alt="Mathbook-Pro">
+      <span class="main-title">Mathbook-Pro</span>
+    </a>
+    <a class="nav-link sport-color" href="#results">
+      <img src="static/imageicon/book2.png" alt="Experimental Results">
+      <span class="main-title">Experiments</span>
+    </a>
+    <a class="nav-link trans-color" href="#contact">
+      <img src="static/imageicon/book2.png" alt="Citation">
+      <span class="main-title">Citation</span>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--WeMath & WeMath2 区别说明卡片-->
+
+
+
+
+
+<!--overview of we-math-->
+
+
+<!--------------------------------qrq body-------------------------------------------->
+
+
+<section id="about-wemath" class="section">
+  
+    <div class="section-title-bar">
+    <h2 class="title is-2" style="text-align:center; color:#283450;">About WeMath Series</h2>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="content" style="max-width:820px; margin:0 auto;">
+      <p>
+        <b>WeMath</b> is a benchmark family for advancing multimodal mathematical reasoning. Our goal is to bridge the gap between human-like mathematical problem solving and the current capabilities of large multimodal models (LMMs), providing a unified, process-oriented evaluation paradigm that decomposes complex visual math problems into interpretable steps.
+        <div class="container is-max-desktop" style="margin-top: 0.0em; margin-bottom: 3.0em;">
+          <div style="
+            background: #f6f7fd;
+            border-radius: 1.2em;
+            box-shadow: 0 2px 12px rgba(120,120,120,0.07);
+            padding: 2.2em 2.5em;
+            border: 1px solid #A4CCD9;
+            ">
+            <h2 style="
+              font-size:1.4em;
+              letter-spacing:1px;
+              font-weight:700;
+              margin-bottom:0.5em;
+              color:#223;
+              text-align: center;
+            ">
+              We-Math vs. We-Math 2.0
+            </h2>
+            <div style="text-align:left; font-size:1.07em; line-height:2; color:#384048;">
+              <div style="margin-bottom:0.5em;">
+                · <b>We-Math</b> is the first multimodal benchmark focused on process-oriented evaluation in mathematical reasoning, systematically decomposing complex problems into sub-problems for unified assessment.
+              </div>
+              <div style="margin-bottom:0.9em;">
+                · <b>We-Math 2.0</b> builds upon this by constructing a hierarchical knowledge system (K-12 & early university), systematically designing problems for full coverage of key concepts—emphasizing purposeful construction rather than simple collection. It introduces a model-centric difficulty space (reasoning steps, scenario complexity, image complexity), expanding each problem into seven graded variants to promote knowledge generalization.
+              </div>
+              <div style="font-size:1em; color:#394058;">
+                <span style="color:#A2D5C6;"><b>Note:</b></span> <b>All problems in We-Math 2.0 are newly created by our team, with original GGB files and image-QA pairs fully open-sourced for the AI and education communities.</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="about-wemath2" class="section">
+  
+    <div class="section-title-bar">
+    <h2 class="title is-2" style="text-align:center; color:#223c52;">We-Math 2.0</h2>
+  </div>
+  <div class="columns is-centered has-text-centered m-6">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Introduction</h2>
+    <div class="content has-text-justified">
+      <p>
+        <p>
+          <strong>We-Math 2.0</strong> is a unified system designed to comprehensively enhance the mathematical reasoning capabilities of Multimodal Large Language Models (MLLMs). 
+          It integrates a <strong>structured mathematical knowledge system</strong>, 
+          <strong>model-centric data space modeling</strong>, and a 
+          <strong>reinforcement learning (RL)-based training paradigm</strong> to achieve both broad conceptual coverage and robust reasoning performance across varying difficulty levels.
+          </p>
+          
+          <p>
+          The key contributions of <strong>MathBook</strong> are fourfold: 
+          <li><strong>MathBook Knowledge System:</strong> a five-level hierarchical structure encompassing 
+          <strong><i>491 knowledge points</i></strong> and <strong><i>2,157 fundamental principles</i></strong>. </li>
+          <li><strong>MathBook-Standard &amp; MathBook-Pro:</strong> MathBook-Standard ensures wide conceptual coverage and flexibility via dual expansion, while MathBook-Pro defines a <strong>three-dimensional difficulty space</strong> and generates 
+          <strong><i>7 progressive variants per problem</i></strong> for robust training. </li>
+          <li><strong>MathBook-RL:</strong> a two-stage RL framework comprising 
+          <i>Cold-Start Fine-tuning</i> for knowledge-oriented chain-of-thought alignment, and 
+          <i>Progressive Alignment RL</i> with average-reward learning and dynamic data scheduling for gradual alignment across difficulty levels. </li>
+          <li><strong>MathBookEval:</strong> a comprehensive benchmark covering all 491 knowledge points with diverse reasoning step distributions.</li>
+          </p>
+          
+          <p>
+          Extensive experiments show that MathBook-RL consistently outperforms existing baselines on four widely-used benchmarks and achieves strong results on MathBookEval, demonstrating superior generalization in mathematical reasoning.
+          </p>
+      
+      </p>
+      <br>
+
+
+      <section class="hero teaser">
+        <div class="container is-max-desktop">
+              <div class="content has-text-centered">
+                <img src="static/imageicon/Fig1.png" width="100%"/>
+
+                <p style="text-align:center;font-size:0.98em;color:#74899c;">
+                  <i>Overview diagram of <b>WeMath 2.0</b>, including examples of knowledge points, fundamental principles, and sample problems.</i>
+                </p>
+              </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="knowledge" class="section">
+  <div class="section-title-bar" style="margin-bottom:1.2em;">
+    <h2 class="title is-2" style="text-align:center;">MathBook Knowledge System</h2>
+  </div>
+
+  <div class="main-content-qrq">
+  
+    MathBook Knowledge System is organized as a five-level hierarchy covering <strong>491 knowledge points</strong> and <strong>2,157 fundamental principles</strong>. 
+    It is systematically derived from trusted sources such as Wikipedia and open-source textbooks, refined through hierarchical clustering techniques, and validated by human experts to ensure accuracy and completeness. 
+    An overview of this structure is provided in the module display below.
+    
+</div>
+
+
+
+  <div class="kb-openbook" data-lang="en">
+    <!-- 顶部工具条：章节 pill + 指引 + 语言切换 -->
+    <div class="kb-openbook-topbar">
+      <!-- 左：章节 pill -->
+      <div class="kb-openbook-toc" id="kbObToc"></div>
+
+      <!-- 中：指引 -->
+      <div class="kb-openbook-guide" id="kbObGuide">
+        Tip: Narrow the scope by selecting nodes on the left (L1–L4) or a knowledge point.
+      </div>
+
+      <!-- 右：语言切换 -->
+      <div class="kb-openbook-toolbar">
+        <div class="kb-lang-switch" aria-label="Language switch">
+          <button id="kbLangEn" class="kb-lang-btn active" type="button">English</button>
+          <button id="kbLangCn" class="kb-lang-btn" type="button">中文</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 舞台 -->
+    <div class="kb-openbook-stage">
+      <div class="kb-openbook-cover-shadow"></div>
+
+      <div class="kb-openbook-spread">
+        <!-- 左页：层级树 & 搜索 -->
+        <div class="kb-openbook-page left">
+          <div class="kb-openbook-page-head">
+            <div class="kb-openbook-page-title" id="kbObLeftTitle">—</div>
+            <input id="kbObSearch" class="kb-openbook-search" placeholder="Search in chapter…">
+          </div>
+          <div class="kb-openbook-tree" id="kbObTree"></div>
+        </div>
+
+        <!-- 书脊 -->
+        <div class="kb-openbook-spine"></div>
+
+        <!-- 右页：知识点 → 考点 chips；点击 chip 展开描述 -->
+        <div class="kb-openbook-page right">
+          <div class="kb-openbook-page-head">
+            <div class="kb-openbook-page-title" id="kbObRightTitle">KnowledgePoint · Principles</div>
+            <div class="kb-openbook-mini-hint" id="kbObHint">
+              Select a node on the left to view its knowledge points and principles.
+            </div>
+          </div>
+          <div class="kb-openbook-detail" id="kbObDetail"></div>
+        </div>
+      </div>
+
+      <!-- 章节翻页 -->
+      <button class="kb-openbook-nav prev" id="kbObPrev" aria-label="Prev">‹</button>
+      <button class="kb-openbook-nav next" id="kbObNext" aria-label="Next">›</button>
+    </div>
+  </div>
+
+  
+</section>
+<link rel="stylesheet" href="static/css/kb-openbook.css">
+<script src="static/js/kb-openbook.js"></script>
+
+
+
+
+<div class="container is-max-desktop">
+
+<div class="content has-text-justified">
+  <!--img show case-->
+  <div id="results-carousel" class="carousel results-carousel">
+    <div class="box m-5">
+      <div class="content has-text-centered">
+        <img src="static/images/fig6-3leida_res.png" width="90%"/>
+        <p> The visualization of different LMMs' performances on each category.</p>
+      </div>
+    </div>
+    <div class="box m-5">
+      <div class="content has-text-centered">
+        <img src="static/images/fig8_strict.png" width="90%"/>
+        <p> The performance of different LMMs on four-dimensional metrics under strict metric. </p>
+      </div>
+    </div>
+    <div class="box m-5">
+      <div class="content has-text-centered">
+        <img src="static/images/fig9_loose.png" width="90%"/>
+        <p> The performance of different LMMs on four-dimensional metrics under loose metric. </p>
+      </div>
+    </div>
+    <div class="box m-5">
+      <div class="content has-text-centered">
+        <img src="static/images/Leaderboard.png" width="90%"/>
+        <p> The Leaderboard of different LMMs under the strict and loose metric (average score %). 
+          ~ represents an approximate estimate of the total parameters nums in LMMs. </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section id="standard" class="section">
+  <div class="section-title-bar" style="margin-bottom: 1.8em;">
+    <h2 class="title is-2" style="text-align:center;">Mathbook-Standard</h2>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="content" style="max-width:860px; margin:0 auto;">
+      <p>
+        <b>Mathbook-Standard</b> provides a curated set of problems with standard (textbook-style) difficulty, mapped to each knowledge point. This enables rigorous evaluation of fundamental skills for LMMs and educational models.
+      </p>
+    </div>
+  </div>
+    <div class="kb-window" style="margin-top:36px;">
+      <div class="kb-header">
+        <h2>题库检索</h2>
+        <input type="text" id="search-input" class="kp-search-input" placeholder="搜索题目/知识点/考点..." />
+      </div>
+      <div class="kb-body">
+        <aside id="cascader-panel" class="kp-bank-sidebar">
+          <div class="cascader-box" id="cascader-box"></div>
+        </aside>
+        <main id="content-panel" class="kp-content-panel">
+          <div id="questions-list" class="kp-questions-list">请选择知识点和考点，或使用上方搜索</div>
+        </main>
+      </div>
+  </div>
+</section> -->
+
+<section id="standard" class="section">
+  <div class="section-title-bar" style="margin-bottom: 1.8em;">
+    <h2 class="title is-2" style="text-align:center;">Mathbook-Standard</h2>
+  </div>
+
+  <div class="main-content-qrq">
+    <p>
+      Building on the <strong>MathBook Knowledge System</strong>, <strong>MathBook-Standard</strong> is a dataset featuring <strong>comprehensive concept-level knowledge annotations</strong> and <strong>carefully curated problems</strong> to ensure broad, balanced coverage across mathematical domains, with particular focus on underrepresented areas.  
+      To foster deeper conceptual understanding, MathBook-Standard employs a <strong>dual-expansion strategy</strong>: <em>multi-images per question</em> and <em>multi-questions per image</em>, enabling the creation of diverse problem sets that promote conceptual flexibility and adaptability.
+      <br>
+      <br>
+      Below, we present the <em>multi-images-per-question</em> component of the dataset, which can be retrieved via its underlying knowledge principles.
+        </p>
+  </div>
+
+  <!-- 题库窗口区域 -->
+  <div class="kb-window" style="margin-top:36px;">
+    <div class="kb-header">
+      <div class="kb-header-left">
+        <h2 class="kb-header-title" id="stdTitle">Problem Retrieval</h2>
+        <div class="kb-sub-hint" id="stdSubHint">
+          Tip: Select from the left to narrow to specific knowledge points & principles.
+        </div>
+      </div>
+
+      <div class="kb-header-right">
+        <div class="lang-switch" aria-label="Language switch">
+          <button id="stdLangEn" class="lang-btn active" type="button">English</button>
+          <button id="stdLangCn" class="lang-btn" type="button">中文</button>
+        </div>
+        <input type="text" id="search-input" class="kp-search-input" placeholder="Search problems / knowledge / principles…" />
+      </div>
+    </div>
+
+    <div class="kb-body">
+      <!-- 左侧级联选择 -->
+      <aside id="cascader-panel" class="kp-bank-sidebar">
+        <h3 id="filterTitle">Filters</h3>
+        <div class="cascader-box" id="cascader-box"></div>
+      </aside>
+
+      <!-- 右侧题目列表 -->
+      <main id="content-panel" class="kp-content-panel">
+        <div id="questions-list" class="kp-questions-list"></div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="static/css/standard.css">
+<script src="static/js/standard.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+<section id="pro" class="section">
+  
+    <div class="section-title-bar">
+    <h2 class="title is-2" style="text-align:center;">Mathbook-Pro</h2>
+  </div>
+    <div class="main-content-qrq">
+      <p>
+        Building on the <strong>MathBook Knowledge System</strong>, <strong>MathBook-Pro</strong> introduces a pivotal <strong>three-dimensional difficulty modeling framework</strong> that systematically characterizes mathematical problem complexity from a model-centric perspective.  
+        Each seed problem is positioned within a structured difficulty space defined by three orthogonal axes:
+        </p>
+        
+
+          <li>
+            <strong>Step Complexity</strong> – Reasoning depth is quantified by the number of knowledge points involved. More complex variants incorporate additional intermediate conclusions, with the most advanced cases involving at least six knowledge points drawn from the MathBook Knowledge System.
+          </li>
+          <li>
+            <strong>Visual Complexity</strong> – Additional elements such as auxiliary lines or altered geometric configurations are introduced via GeoGebra, while preserving the original core structure.
+          </li>
+          <li>
+            <strong>Contextual Complexity</strong> – Concise mathematical statements are rephrased into richer real-world contexts or linguistically abstract scenarios, increasing the semantic and interpretive demands of the problem statement.
+          </li>
+
+        
+        <p>
+        By varying a single dimension at a time and progressively composing transformations across multiple dimensions, each seed problem is expanded into <strong>seven progressive difficulty levels</strong>.  
+        This enables structured, gradual learning for MLLMs and creates a robust foundation for enhancing reasoning performance across varying levels of complexity.  
+        Below, we showcase the multi-level difficulty component of MathBook-Pro, illustrating its progressive design across the three complexity dimensions.
+        </p>
+
+        <br>
+        <span style="background:#f7f7f7; padding:0 4px; border-radius:3px; font-size:0.88em; color:#747474;">
+        The module below illustrates the use of MathBook-Pro in the Dynamic Scheduling RL strategy: the left panel presents a Case Demonstration, while the right panel visualizes the difficulty space, where colored points indicate the data currently scheduled for training. (see the training process section for further clarity)</span>
+          
+      </div>
+  
+  </div>
+</section>
+
+<!-- DCL Demo：放在容器外，保证最大宽度 -->
+<section style="background:none;padding:0;">
+  
+  <div id="dcl-demo"></div>
+  <link rel="stylesheet" href="static/dcl-style.css">
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <script src="static/dcl-script.js"></script>
+  
+  
+</section>
+
+
+
+
+
+<section id="results" class="section">
+  <div class="section-title-bar">
+    <h2 class="title is-2" style="text-align:center; color:#25446d;">Method</h2>
+  </div>
+  
+</section>
+
+
+
+
+<section class="hero teaser">
+
+<div class="container is-max-desktop" style="max-width:960px; margin:0 auto;">
+    <div class="content" style="max-width:960px; margin:0 auto;">
+      <p>
+        <b>MathBook-RL</b> is a reinforcement learning framework designed for progressive and robust mathematical reasoning in MLLMs.
+        It combines knowledge-grounded pretraining with curriculum-based RL to improve both accuracy and generalization across knowledge, visual, and contextual variations.
+      </p>
+
+      <h3 style="margin-top: 1.2em;">Cold-Start Fine-tuning</h3>
+      <p>
+        We begin with supervised fine-tuning on <b>MathBook-Standard</b>, guiding the model to perform knowledge-oriented chain-of-thought reasoning. 
+        This stage focuses on internalizing conceptual understanding and structured problem-solving paradigms, providing a solid foundation before RL training.
+      </p>
+
+      <h3 style="margin-top: 1.2em;">Progressive Alignment RL</h3>
+      <p>
+        Leveraging the <i>"one-question-multi-image"</i> and knowledge-point features in <b>MathBook-Standard</b>, we first align the model's analogical reasoning using an average reward mechanism.
+        We then progressively train on <b>MathBook-Pro</b> following a curriculum-based paradigm, increasing difficulty along the knowledge, visual, and contextual dimensions.
+      </p>
+
+      <ul>
+        <li>
+          <b>Knowledge Increment Scheduling:</b> When errors occur due to complex reasoning steps, the model is redirected to targeted incremental-step samples in MathBook-Standard.
+        </li>
+        <li>
+          <b>Modality Increment Scheduling:</b> When failures stem from higher modality complexity, the model is guided through single-modality incremental problems.
+        </li>
+      </ul>
+
+      <p>
+        This targeted curriculum enables efficient knowledge transfer across difficulty levels, while maintaining stability and robustness in multi-modal mathematical reasoning.
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <img src="static/imageicon/Fig2.png" width="100%"/>
+      <p>
+        Overview of MathBook dataset and the corresponding training phase.
+      </p>
+    </div>
+    
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="results" class="section">
+  
+    <div class="section-title-bar">
+    <h2 class="title is-2" style="text-align:center; color:#25446d;">Experiment Results</h2>
+  </div>
+  <div class="container is-max-desktop">
+    <div class="content" style="max-width:900px; margin:0 auto;">
+      <img src="static/images/your_leaderboard.png" style="width:100%; max-width:760px;">
+      <p style="text-align:center;font-size:0.98em;color:#74899c;">
+        <i>Leaderboard of visual mathematical reasoning models on WeMath 2.0.</i>
+      </p>
+      <!-- 这里可以加数据表/分析简述 -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="contact" class="section">
+  <div class="section-title-bar">
+    <h2 class="title is-2" style="text-align:center;">Citation & Contact</h2>
+  </div>
+
+
+
+    <div class="container is-max-desktop">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{qiao2024we,
+        title={We-Math: Does Your Large Multimodal Model Achieve Human-like Mathematical Reasoning?},
+        author={Qiao, Runqi and Tan, Qiuna and Dong, Guanting and Wu, Minhui and Sun, Chong and Song, Xiaoshuai and GongQue, Zhuoma and Lei, Shanglin and Wei, Zhe and Zhang, Miaoxuan and others},
+        journal={arXiv preprint arXiv:2407.01284},
+        year={2024}
+      }</code></pre>
+      <br>
+      <h2 class="title">Contact</h2>
+      <p>For questions, suggestions, or collaborations, please contact <a href="mailto:qrq@bupt.edu.cn">qrq@bupt.edu.cn</a> or <a href="mailto:qiunatan@bupt.edu.cn">qiunatan@bupt.edu.cn</a>.</p>
+    </div>
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+<!---------------------------------main body-------------------------------------------->
+<!-- Intro. -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>Inspired by human-like mathematical reasoning, we introduce <span class="wemath">We-Math</span>, 
+             the first benchmark specifically designed to explore the problem-solving principles beyond the end-to-end performance. 
+          </p>
+
+          <p>
+            We meticulously collect and categorize <b>6.5K</b> visual math problems, 
+            spanning <b>67</b> hierarchical knowledge concepts and <b>5</b> layers of knowledge granularity. 
+            We firstly decompose composite problems into sub-problems according to the required knowledge concepts and introduce a novel four-dimensional metric, 
+            namely <b>Insufficient Knowledge (IK)</b>, <b>Inadequate Generalization (IG)</b>, <b>Complete Mastery (CM)</b>, and <b>Rote Memorization (RM)</b> to hierarchically assess inherent issues in LMMs' reasoning process.
+          </p>
+            
+          <p>
+            With <span class="wemath">We-Math</span>, we conduct a thorough evaluation of existing LMMs
+            in visual mathematical reasoning and reveal a negative correlation between solving
+            step and problem-specific performance. We confirm the <b>IK</b> issue of LMMs can
+            be effectively improved via knowledge augmentation strategy. More notably, the
+            primary challenge of <b>GPT-4o</b> has significantly transitioned from <b>IK</b> to <b>IG</b>, establishing 
+            it as the first LMM advancing towards the knowledge generalization stage.
+            In contrast, other LMMs exhibit a marked inclination towards <b>Rote Memorization</b>
+            they correctly solve composite problems involving multiple knowledge concepts,
+            yet fail in answering sub-problems. 
+          </p>
+          <p>  
+          We anticipate that <span class="wemath">We-Math</span> will open new
+            pathways for advancements in visual mathematical reasoning for LMMs.
+          </p>
+        </div>
+        <br><br>
+        <div class="content has-text-centered">
+          <img src="static/imageicon/Fig2.png" width="100%"/>
+          <p>
+            Overview of LMMs' performances on <span class="wemath"> We-Math</span>. Figures from left to right illustrates the
+            (1) accuracy of different LMMs on various problem-solving steps, (2) the performance in different
+            visual mathematics categories and (3) the result in knowledge based reasoning evaluation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<!--benchmark section-->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 wemath">
+      <img src="static/images/icon.png" style="width:1em;vertical-align: middle" alt="Logo"/>
+      <span class="wemath" style="vertical-align: middle">We-Math Benchmark</span>
+    </h1>
+  </div>
+</section>
+
+
+<!---overview section-->
+<section>
+  <div class="container">
+    <div class="columns is-centered has-text-centered m-6">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <!--overview of benchmark-->
+          <p>
+            Different from existing benchmarks,
+            <span class="wemath">We-Math</span> is constructed around textbook knowledge units, 
+            decomposing composite problem solutions into sub-problems based on the knowledge concepts.<br>
+            <b>(1) Hierarchical Knowledge Structure.</b> Strictly adheres to the knowledge presented in mathematics textbooks, 
+            featuring a rigorous hierarchical and multi-category architecture. It
+            ensures the independence of knowledge concepts within the same level, while establishing logical
+            relationships among concepts at different hierarchical levels.<br>
+            <b>(2) Knowledge based Reasoning Evaluation.</b> To explore how LMMs solve
+            problems. Drawing upon that humans tackle problems incrementally by leveraging fundamental
+            knowledge concepts, we break down complex mathematical problems into more manageable sub105
+            problems. Furthermore, we employ diverse measurement dimensions for meticulous evaluations.<br>
+            <b>(3) Knowledge Concept Augmentation.</b> To alleviate the inherent issues during the problem-solving
+            process, we heuristically introduce descriptions for <b>67 knowledge concepts</b> from Wikipedia and 
+            textbooks, thereby providing essential knowledge support for the reasoning processes of LMMs.
+          </p>
+          <!--carousel-->
+          <div id="overview-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/step_2.png" alt="algebraic reasoning" width="90%"/>
+                <p> The pipeline of knowledge-based data decomposition (an example of a two-step problem in <span class="wemath" style="vertical-align: middle">We-Math</span>).</p>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/step_3.png" alt="arithmetic reasoning" width="90%"/>
+                <p> The pipeline of knowledge-based data decomposition (an example of a three-step problem in <span class="wemath" style="vertical-align: middle">We-Math</span>). </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!----------------------------------Experiment Results----------------------------------------------->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 wemath">Experiment Results</h1>
+  </div>
+</section>
+
+
+
+
+
+<section>        
+  <div class="container">
+    <div class="columns is-centered has-text-centered m-6">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results on Existing Foundation Models</h2>
+        <div class="content has-text-justified">
+          <!--img show case-->
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/fig6-3leida_res.png" width="90%"/>
+                <p> The visualization of different LMMs' performances on each category.</p>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/fig8_strict.png" width="90%"/>
+                <p> The performance of different LMMs on four-dimensional metrics under strict metric. </p>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/fig9_loose.png" width="90%"/>
+                <p> The performance of different LMMs on four-dimensional metrics under loose metric. </p>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/Leaderboard.png" width="90%"/>
+                <p> The Leaderboard of different LMMs under the strict and loose metric (average score %). 
+                  ~ represents an approximate estimate of the total parameters nums in LMMs. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--knowledge card-->
+<section>
+  <div class="container">
+    <div class="columns is-centered has-text-centered m-6">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" id="examples">Knowledge Card</h2>
+        <div class="content has-text-justified">
+          <!--img show case-->
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card1_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Angles and Length". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card2_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Correspondence of Coordinates and Positions". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card3_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Basic Transformations of Figures". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card4_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Cutting and Combining of Figures". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card5_res.png" width="80%"/>
+                <p> The description of the knowledge concepts "Direction" and "Position". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card8_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Route Map". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card9_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Understanding and Conversion of Units". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card6_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Calculation of Solid Figures". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card7_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Calculation of Plane Figures". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card10_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Understanding of Plane Figures". </p>
+              </div>
+            </div>
+            <div class="box m-5" style="height: 100%; display: flex; justify-content: center; align-items: center; text-align: center;">
+              <div class="content has-text-centered">
+                <img src="static/images/card11_res.png" width="80%"/>
+                <p> The description of the knowledge concept "Understanding of Solid Figures". </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-----------------------------------------------结束部分------------------------------------------------------>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{qiao2024we,
+      title={We-Math: Does Your Large Multimodal Model Achieve Human-like Mathematical Reasoning?},
+      author={Qiao, Runqi and Tan, Qiuna and Dong, Guanting and Wu, Minhui and Sun, Chong and Song, Xiaoshuai and GongQue, Zhuoma and Lei, Shanglin and Wei, Zhe and Zhang, Miaoxuan and others},
+      journal={arXiv preprint arXiv:2407.01284},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+
+<!--logo-->
+<!--
+<section>
+  <div class="section" id="org-banners" style="display:flex">
+    <a href="https://www.bupt.edu.cn/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/BUPT.png">
+    </a>
+    <a href="https://www.bupt.edu.cn/" target="blank" class="ext-link">
+        <img class="center-block org-banner" src="static/images/PRIS.png">
+    </a>
+    <a href="https://www.bupt.edu.cn/" target="blank" class="ext-link">
+        <img class="center-block org-banner" src="static/images/tencent_logo.png">
+    </a>
+    <a href="https://www.bupt.edu.cn/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/wechat_logo.png">
+    </a>
+  </div>
+</section>-->
+
+
+
+<!--footer-->
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">MathVista</a>, licensed under a <a rel="license"
+                                              href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-----------------end body---------------------->
+
+</body>
+</html>

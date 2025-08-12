@@ -1,0 +1,356 @@
+/* ================================
+   We-Math • Knowledge Atlas (Book)
+   File: static/css/atlas.css
+   Palette: 蓝绿清爽系 (#A2D5C6 / #A4CCD9 / #F0E4D3 / #20519a)
+   ================================ */
+
+/* 容器与书本外框 */
+.atlas-wrap {
+    max-width: 1280px;
+    margin: 24px auto 36px auto;
+    padding: 0 18px;
+  }
+  
+  .atlas-book {
+    background: linear-gradient(180deg, #fcfdff 0%, #f7fafc 100%);
+    border-radius: 22px;
+    border: 1.6px solid #dbe6f4;
+    box-shadow: 0 8px 32px rgba(168, 186, 214, .24);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* 顶部条（标题、语言切换、搜索） */
+  .atlas-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    border-bottom: 1.5px solid #e6eef7;
+    background: #f6f9fc;
+  }
+  
+  .atlas-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #20519a;
+    letter-spacing: .02em;
+    margin-right: auto;
+  }
+  
+  .atlas-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1.4px solid #cfe0f2;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(186, 206, 234, .25);
+  }
+  .atlas-lang-toggle button {
+    border: none;
+    padding: 8px 14px;
+    font-weight: 600;
+    color: #436a9b;
+    background: transparent;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .atlas-lang-toggle button.active {
+    background: linear-gradient(90deg, #A2D5C6 0%, #E8F0F9 100%);
+    color: #145c77;
+  }
+  .atlas-lang-toggle button:not(.active):hover {
+    background: #f2f7fc;
+  }
+  
+  /* 顶部搜索框 */
+  .atlas-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .atlas-search input {
+    width: 320px;
+    max-width: 36vw;
+    border: 1.5px solid #cfe0f2;
+    border-radius: 11px;
+    padding: 9px 12px;
+    outline: none;
+    font-size: 0.98rem;
+    color: #2b5276;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(186, 206, 234, .18);
+    transition: border .16s, box-shadow .16s;
+  }
+  .atlas-search input:focus {
+    border-color: #8fb7e8;
+    box-shadow: 0 4px 14px rgba(186, 206, 234, .28);
+  }
+  
+  /* 一级标签（四大章节） */
+  .atlas-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 12px 14px 10px 14px;
+    background: #eef4fb;
+    border-bottom: 1.5px solid #e3ebf6;
+  }
+  .atlas-tab {
+    text-align: center;
+    padding: 9px 10px;
+    border-radius: 12px;
+    border: 1.4px solid #d5e2f3;
+    background: #ffffff;
+    font-weight: 700;
+    color: #2b4f86;
+    letter-spacing: .02em;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: border .15s, box-shadow .15s, transform .05s;
+  }
+  .atlas-tab:hover {
+    border-color: #b9d2ef;
+    box-shadow: 0 3px 12px rgba(173, 197, 232, .28);
+  }
+  .atlas-tab:active { transform: translateY(1px); }
+  .atlas-tab.active {
+    background: linear-gradient(180deg, #fff 0%, #f6fbff 100%);
+    border-color: #9fc2ea;
+    box-shadow: 0 5px 16px rgba(157, 186, 228, .35);
+    color: #1e3f7c;
+  }
+  
+  /* 主体：左树 + 右内容（书页） */
+  .atlas-main {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 0;
+    min-height: 520px;
+  }
+  
+  /* 左侧目录树（L2/L3/L4/KnowledgePoint） */
+  .atlas-tree {
+    background: #f4f8fd;
+    border-right: 1.6px dashed #c9d8ea;
+    padding: 18px 14px 18px 16px;
+    overflow: auto;
+  }
+  .atlas-tree h3 {
+    font-size: 0.98rem;
+    color: #295266;
+    margin: 4px 6px 12px 6px;
+    font-weight: 700;
+  }
+  
+  /* 折叠层级列表 */
+  .tree-list { list-style: none; margin: 0; padding-left: 0; }
+  .tree-item {
+    margin: 3px 4px;
+    border-radius: 10px;
+    padding: 8px 10px 8px 34px;
+    color: #386393;
+    position: relative;
+    cursor: pointer;
+    transition: background .12s, color .12s, box-shadow .12s;
+  }
+  .tree-item:hover { background: #eaf3ff; color: #1d4a7c; }
+  .tree-item.active {
+    background: #e2f2ed;
+    color: #145c77;
+    box-shadow: inset 0 0 0 1.6px #A2D5C6;
+  }
+  .tree-item .caret {
+    position: absolute;
+    left: 10px; top: 10px;
+    width: 12px; height: 12px;
+    border-left: 2px solid #98b3d8;
+    border-bottom: 2px solid #98b3d8;
+    transform: rotate(-45deg);
+    transition: transform .15s, border-color .15s;
+  }
+  .tree-item.expand > .caret {
+    transform: rotate(45deg);
+    border-color: #6f9fd4;
+  }
+  
+  .tree-children {
+    margin-left: 18px;
+    border-left: 2px dotted #d8e3f3;
+    padding-left: 12px;
+  }
+  
+  /* 右侧“书页”内容 */
+  .atlas-content {
+    background:
+      radial-gradient(circle at 2% 2%, #ffffff 0%, #fbfdff 100%);
+    padding: 18px 18px 26px 18px;
+    position: relative;
+  }
+  
+  /* “装订线”装饰（书本质感） */
+  .atlas-spine {
+    position: absolute;
+    left: -12px; top: 0; bottom: 0;
+    width: 12px;
+    background: linear-gradient(180deg, #d9e4f2 0%, #cddceb 100%);
+    box-shadow: 2px 0 10px rgba(150, 172, 200, .28);
+  }
+  
+  /* 面包屑 & 计数信息 */
+  .atlas-breadcrumb {
+    font-size: 0.94rem;
+    color: #6483a8;
+    margin-bottom: 10px;
+  }
+  .atlas-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6c93ad;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  .meta-pill {
+    background: #eef6ff;
+    border: 1px solid #d9e9fb;
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-weight: 600;
+    color: #2b5f95;
+  }
+  
+  /* 知识点列表（右页展示） */
+  .kp-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 12px 14px;
+  }
+  @media (max-width: 960px) {
+    .atlas-main { grid-template-columns: 1fr; }
+    .atlas-spine { display: none; }
+    .kp-list { grid-template-columns: 1fr; }
+  }
+  
+  /* 知识点卡片 */
+  .kp-card {
+    background: #ffffff;
+    border: 1.4px solid #e2eaf6;
+    border-radius: 14px;
+    padding: 12px 12px 10px 12px;
+    box-shadow: 0 2px 12px rgba(196, 212, 234, .22);
+    transition: border-color .14s, box-shadow .14s, transform .05s;
+  }
+  .kp-card:hover {
+    border-color: #b5cfee;
+    box-shadow: 0 4px 16px rgba(172, 194, 225, .28);
+  }
+  .kp-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .kp-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: #A2D5C6;
+    box-shadow: 0 0 0 4px rgba(162,213,198,.18);
+  }
+  .kp-name {
+    font-weight: 700;
+    color: #25446d;
+    font-size: 1rem;
+    flex: 1;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+  
+  /* 展开按钮（显示 principles） */
+  .kp-toggle {
+    border: none;
+    background: linear-gradient(90deg, #A2D5C6, #E8F0F9);
+    color: #145c77;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border-radius: 9px;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(162, 213, 198, .28);
+    transition: filter .15s;
+  }
+  .kp-toggle:hover { filter: brightness(1.06); }
+  
+  /* principles 列表 */
+  .kp-body { padding-left: 20px; margin-top: 6px; }
+  .principle-item {
+    margin: 8px 0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1.3px dashed #dfe9f6;
+    background: #fbfdff;
+    color: #345f8f;
+  }
+  .principle-item .p-title {
+    font-weight: 700;
+    color: #1e4d82;
+    margin-bottom: 2px;
+  }
+  .principle-item .p-desc {
+    color: #4e7aa5;
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+  
+  /* 空数据/提示 */
+  .atlas-empty {
+    text-align: center;
+    color: #7ea0bf;
+    padding: 18px 8px;
+  }
+  
+  /* 结果高亮（搜索） */
+  mark.atlas-hit {
+    background: #fff0a8;
+    color: #303a4d;
+    border-radius: 4px;
+    padding: 0 3px;
+  }
+  
+  /* 小按钮（右上角导出/刷新等可复用） */
+  .btn-ghost {
+    border: 1.3px solid #cfe0f2;
+    background: #fff;
+    color: #2b5f95;
+    padding: 7px 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: box-shadow .14s, border-color .14s, transform .05s;
+  }
+  .btn-ghost:hover {
+    border-color: #b4cceb;
+    box-shadow: 0 2px 12px rgba(183, 202, 230, .28);
+  }
+  .btn-ghost:active { transform: translateY(1px); }
+  
+  /* 滚动条（左树 + 右页） */
+  .atlas-tree::-webkit-scrollbar,
+  .atlas-content::-webkit-scrollbar {
+    width: 10px; height: 10px;
+  }
+  .atlas-tree::-webkit-scrollbar-thumb,
+  .atlas-content::-webkit-scrollbar-thumb {
+    background: #d3e4f7;
+    border-radius: 10px;
+    border: 2px solid #f3f8ff;
+  }
+  .atlas-tree::-webkit-scrollbar-track,
+  .atlas-content::-webkit-scrollbar-track {
+    background: #f3f8ff;
+    border-radius: 10px;
+  }
+  

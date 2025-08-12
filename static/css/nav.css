@@ -1,0 +1,109 @@
+.nav-side {
+    position: fixed;
+    left: 15px;
+    top: 24px;
+    width: 214px;
+    background: #fafdff;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px 0 #d0d8e8a0; /* 更强阴影 */
+    z-index: 101;
+    padding: 14px 4px 14px 4px;
+    border: 2px solidrgb(157, 172, 204)8;   /* 更粗更亮的蓝色边框 */
+    overflow-x: hidden;
+    max-height: 86vh;
+    overflow-y: auto;
+  }
+
+  .nav-side {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .nav-side.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  
+  .nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 8px 7px 12px;
+    border-radius: 9px;
+    background: #fff;
+    text-decoration: none;
+    font-size: 0.95em;
+    color: #49566e;
+    font-weight: 500;
+    box-shadow: 0 1px 6px #e6edfa11;
+    transition: box-shadow 0.12s, background 0.12s, color 0.11s, border-left-width 0.18s;
+    border: 1px solid #f8fafd;
+    min-height: 32px;
+    cursor: pointer;
+  }
+  
+  .nav-link.intro-color    { border-left: 4px solid #f4b1a7bb; }
+  .nav-link.arc-color      { border-left: 4px solid #ffe06a80; }
+  .nav-link.edu-color      { border-left: 4px solid #b6f8d2b8; }
+  .nav-link.house-color    { border-left: 4px solid #ffd8bbbe; }
+  .nav-link.social-color   { border-left: 4px solid #ffa0be91; }
+  .nav-link.sport-color    { border-left: 4px solid #b7dbfa91; }
+  .nav-link.trans-color    { border-left: 4px solid #bad0e6bb; }
+  .nav-link.example-color  { border-left: 4px solid #ccb0df94; }
+  
+  .nav-link img {
+    width: 23px;
+    height: 23px;
+    border-radius: 6px;
+    object-fit: contain;
+    background: none;
+    box-shadow: 0 1px 5px #d5e8fa21;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+  
+  .nav-link:hover, .nav-link.active-link {
+    background: #f1f6fd;
+    color: #1766c2;
+    box-shadow: 0 3px 12px #aec7fd23;
+    outline: none;
+    border-left-width: 6px;
+  }
+  
+  .nav-link img:hover {
+    transform: scale(1.10) rotate(-2deg);
+    box-shadow: 0 4px 14px #aec7fd27;
+  }
+  
+  .main-title {
+    font-size: 1.02em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #4d5770;
+    line-height: 1.14;
+    margin-top: 0;
+    white-space: normal;
+    word-break: break-all;
+    flex: 1;
+  }
+  
+  .nav-divider {
+    border: none;
+    border-top: 1.7px solid #e4e8f2;
+    margin: 4px 0 4px 12px;
+    width: 85%;
+    opacity: 0.97;
+  }
+  
+  @media (max-width: 900px) {
+    .nav-side {
+      display: none !important;
+    }
+  }
+  
