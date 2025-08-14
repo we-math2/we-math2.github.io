@@ -1,0 +1,106 @@
+/* ======= 书本式知识体系（独立命名空间） ======= */
+.kb-book { 
+    max-width: 1200px; margin: 18px auto; 
+    background:#f8fafc; border-radius:22px; 
+    box-shadow:0 2px 22px #b4cee622; border:1px solid #e7eef7;
+    padding:14px 16px 18px;
+  }
+  
+  /* 顶部薄薄的目录条（四章） */
+  .kb-book-toc{
+    display:flex; gap:8px; justify-content:center; align-items:center;
+    padding:8px; border-radius:12px; background:#ffffff; border:1px solid #e7eef7;
+    box-shadow: inset 0 1px 6px #ecf2f9;
+    margin-bottom:12px; overflow:auto;
+  }
+  .kb-toc-pill{
+    white-space:nowrap;
+    padding:6px 12px; border-radius:999px; cursor:pointer; user-select:none;
+    font-weight:600; color:#295266; border:1px solid #d9e8f4; background:#f6fbff;
+    transition:transform .12s, background .12s, color .12s, box-shadow .12s;
+  }
+  .kb-toc-pill:hover{ transform: translateY(-1px); box-shadow:0 2px 8px #d9e8f444; }
+  .kb-toc-pill.active{ color:#197676; background:#e8f6f3; border-color:#cfeae4; }
+  
+  /* 书本舞台：左右翻页按钮 + 视口 */
+  .kb-book-stage{ 
+    position:relative; display:flex; align-items:center; gap:10px;
+  }
+  .kb-book-nav{
+    border:none; width:40px; height:40px; border-radius:50%;
+    background:linear-gradient(90deg,#a2d5c6,#e6eef8); color:#164e4b; font-weight:800;
+    box-shadow:0 1px 6px #d4efea44; cursor:pointer;
+  }
+  .kb-book-nav:disabled{ opacity:.35; cursor:not-allowed; }
+  
+  .kb-book-viewport{
+    position:relative; flex:1; overflow:hidden; 
+    background:#fff; border:1px solid #e7eef7; border-radius:16px; 
+    box-shadow: inset 0 1px 6px #ecf2f9;
+  }
+  .kb-book-pages{
+    display:flex; transition: transform .35s ease; will-change: transform;
+  }
+  
+  /* 单页（章节） */
+  .kb-page{
+    min-width: 100%; padding:16px; 
+    background:
+      radial-gradient(60% 80% at 0% 50%, #f7fbff 0%, transparent 70%) left/50% 100% no-repeat,
+      radial-gradient(60% 80% at 100% 50%, #f7fbff 0%, transparent 70%) right/50% 100% no-repeat,
+      #ffffff;
+  }
+  
+  /* 每页内的树容器 */
+  .kb-page-head{
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;
+  }
+  .kb-page-title{
+    font-size:1.15rem; font-weight:700; color:#223c52;
+  }
+  .kb-search{
+    border:1.5px solid #b5d5e9; border-radius:10px; padding:8px 12px; width:320px;
+    outline:none; color:#295266; background:#fcfdff; box-shadow:0 2px 8px #e0e9f721;
+  }
+  .kb-search:focus{ border-color:#197676; }
+  
+  /* 树（沿用你喜欢的chips风格，缩小一点） */
+  .kb-tree{ list-style:none; padding-left:0; margin:0; }
+  .kb-node{
+    position:relative; padding:7px 10px 7px 26px; margin:1px 0;
+    border-radius:10px; transition: background .12s, box-shadow .12s;
+  }
+  .kb-node:hover{ background:#f6fbff; box-shadow:0 1px 6px #e6f1fb; }
+  
+  .kb-toggle{
+    position:absolute; left:6px; top:9px; width:16px; height:16px;
+    border-radius:4px; display:flex; align-items:center; justify-content:center;
+    font-size:12px; cursor:pointer; user-select:none; color:#356690;
+    background:#eaf3fb; border:1px solid #d4e5f3;
+  }
+  .kb-toggle.is-leaf{ visibility:hidden; }
+  
+  .kb-label{ color:#25446d; font-weight:600; letter-spacing:.02em; }
+  .kb-level-2 .kb-label{ color:#295266; }
+  .kb-level-3 .kb-label{ color:#3a6b8d; }
+  .kb-level-4 .kb-label{ color:#4f7ea2; }
+  
+  .kb-meta{
+    margin-left:8px; font-size:12px; color:#7aa6be;
+    background:#f4f9fd; border:1px solid #e2edf7; border-radius:999px;
+    padding:2px 8px; vertical-align:middle;
+  }
+  .kb-children{ margin-left:12px; padding-left:12px; border-left:2px dotted #e6eef7; }
+  
+  .kb-kp-line{ margin:6px 0 2px 26px; color:#427199; font-size:0.94rem; }
+  .kb-chip{
+    display:inline-block; margin:3px 6px 0 0; padding:2px 8px; border-radius:999px;
+    font-size:12px; color:#197676; background:#e8f6f3; border:1px solid #cfeae4;
+    box-shadow:0 1px 4px #e6f4f2;
+  }
+  .kb-hit{ background:linear-gradient(transparent 70%, #fff3b0 0); }
+  
+  @media (max-width: 900px){
+    .kb-search{ width: 56vw; }
+  }
+  

@@ -1,0 +1,203 @@
+:root {
+  --nav-width: 217px;
+  --nav-width-collapsed: 56px;
+  --nav-bg: #fafdff;
+  --nav-border: rgba(157, 172, 204, 0.8);
+}
+
+/* 侧边栏容器 */
+.nav-side {
+  position: fixed;
+  left: 15px;
+  top: 24px;
+  width: var(--nav-width);
+  background: var(--nav-bg);
+  border-radius: 16px;
+  box-shadow: 0 6px 32px 0 #d0d8e8a0;
+  z-index: 101;
+  padding: 14px 4px;
+  border: 0.8px solid var(--nav-border); /* 修复原先的语法错误 */
+  overflow-x: hidden;
+  max-height: 86vh;
+  overflow-y: auto;
+
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    width 0.24s ease,
+    padding 0.24s ease,
+    opacity 0.28s ease;
+}
+
+/* 显示控制（保持你原来的 visible 机制） */
+.nav-side.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 折叠态：仅图标更窄 */
+.nav-side.collapsed {
+  width: var(--nav-width-collapsed);
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+/* 顶部栏：标题 + 按钮（内嵌，更美观） */
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px 10px 12px;
+  margin-bottom: 6px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid #e9eef7;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.nav-title {
+  font-size: 0.92em;
+  color: #4d5770;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* 折叠/展开按钮 */
+.nav-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(157,172,204,0.55);
+  color: #3e5f92;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .18s ease, box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+}
+.nav-toggle:hover {
+  background: #f1f6fd;
+  box-shadow: 0 2px 8px rgba(174,199,253,0.25);
+  border-color: rgba(157,172,204,0.75);
+}
+.nav-toggle:focus-visible {
+  outline: 2px solid #b7cdfa;
+  outline-offset: 2px;
+  border-color: #8fb0f3;
+}
+.nav-toggle svg {
+  width: 16px;
+  height: 16px;
+  transition: transform .2s ease;
+}
+/* 折叠时箭头旋转（指向右边展开） */
+.nav-side.collapsed .nav-toggle svg {
+  transform: rotate(180deg);
+}
+/* 折叠时可隐藏标题，只留按钮 */
+.nav-side.collapsed .nav-title {
+  display: none;
+}
+
+/* 组与链接卡片（保持你原样式） */
+.nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 8px 7px 12px;
+  border-radius: 9px;
+  background: #fff;
+  text-decoration: none;
+  font-size: 0.95em;
+  color: #49566e;
+  font-weight: 500;
+  box-shadow: 0 1px 6px #e6edfa11;
+  transition: box-shadow 0.12s, background 0.12s, color 0.11s, border-left-width 0.18s;
+  border: 1px solid #f8fafd;
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.nav-link.intro-color    { border-left: 4px solid #f4b1a7bb; }
+.nav-link.arc-color      { border-left: 4px solid #ffe06a80; }
+.nav-link.edu-color      { border-left: 4px solid #b6f8d2b8; }
+.nav-link.house-color    { border-left: 4px solid #ffd8bbbe; }
+.nav-link.social-color   { border-left: 4px solid #ffa0be91; }
+.nav-link.sport-color    { border-left: 4px solid #b7dbfa91; }
+.nav-link.trans-color    { border-left: 4px solid #bad0e6bb; }
+.nav-link.example-color  { border-left: 4px solid #ccb0df94; }
+
+.nav-link img {
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+  object-fit: contain;
+  background: none;
+  box-shadow: 0 1px 5px #d5e8fa21;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.nav-link:hover, .nav-link.active-link {
+  background: #f1f6fd;
+  color: #1766c2;
+  box-shadow: 0 3px 12px #aec7fd23;
+  outline: none;
+  border-left-width: 6px;
+}
+
+.nav-link img:hover {
+  transform: scale(1.10) rotate(-2deg);
+  box-shadow: 0 4px 14px #aec7fd27;
+}
+
+.main-title {
+  font-size: 1.02em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #4d5770;
+  line-height: 1.14;
+  margin-top: 0;
+  white-space: normal;
+  word-break: break-all;
+  flex: 1;
+}
+
+.nav-divider {
+  border: none;
+  border-top: 1.7px solid #e4e8f2;
+  margin: 4px 0 4px 12px;
+  width: 85%;
+  opacity: 0.97;
+}
+
+/* 折叠态：仅图标（隐藏文字，间距收紧） */
+.nav-side.collapsed .nav-link {
+  justify-content: center;
+  padding-left: 6px;
+  padding-right: 6px;
+  gap: 0;
+}
+.nav-side.collapsed .nav-link .main-title {
+  display: none;
+}
+.nav-side.collapsed .nav-divider {
+  margin-left: 8px;
+  width: calc(100% - 16px);
+}
+
+/* 小屏保持原规则 */
+@media (max-width: 900px) {
+  .nav-side {
+    display: none !important;
+  }
+}

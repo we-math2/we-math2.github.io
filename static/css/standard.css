@@ -1,0 +1,214 @@
+/* ======================
+   Global (scoped to #standard)
+   ====================== */
+   #standard {
+    --std-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                     Roboto, "Helvetica Neue", Arial, "PingFang SC",
+                     "Microsoft YaHei", "Noto Sans CJK SC", "Hiragino Sans",
+                     "Noto Sans", sans-serif;
+    --std-font-serif: "Georgia", "Times New Roman", Times, serif;
+    --std-title: #153a63;
+    --std-muted: #6b86a1;
+    --std-accent: #197676;
+    --std-chip-k: #eef7ff;
+    --std-chip-p: #e8f6f3;
+  
+    /* 统一字号变量 */
+    --q-font: .72rem;          /* Question 文本 */
+    --a-font: .72rem;          /* Answer 文本  */
+    --chip-font: .72rem;       /* 标签字体     */
+    --chip-radius: 4px;        /* 小矩形圆角 */
+    --chip-pad-y: 2px;
+    --chip-pad-x: 8px;
+  }
+  
+  /* ===== 窗口外框 ===== */
+  #standard .kb-window {
+    max-width: 1180px;
+    margin: 10px auto;
+    box-shadow: 0 2px 22px #b4cee622;
+    border-radius: 24px;
+    background: #f8fafc;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e9f2fb;
+    font-family: var(--std-font-sans);
+  }
+  
+  /* ===== 顶栏 ===== */
+  #standard .kb-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 16px 10px;
+    background: linear-gradient(180deg, #fbfdff, #f6fbff 60%, #f8fbff 100%);
+    border-bottom: 1.5px dashed #cfe0ee;
+  }
+  #standard .kb-header-left { display: flex; flex-direction: column; gap: 2px; }
+  #standard .kb-header-title {
+    margin: 0;
+    font-size: 1.12rem;
+    letter-spacing: .015em;
+    color: var(--std-title);
+    font-weight: 800;
+    font-family: var(--std-font-serif);
+  }
+  #standard .kb-sub-hint {
+    font-size: .86rem;
+    color: var(--std-muted);
+    opacity: .96;
+  }
+  #standard .kb-header-right{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  #standard .lang-switch{
+    display:flex; gap:8px; background:#eef6ff; border:1px solid #d6e6fb; padding:4px; border-radius:999px;
+    box-shadow: inset 0 1px 8px #d9e8ff55;
+  }
+  #standard .lang-btn{
+    border:none; background:transparent; padding:6px 14px; border-radius:999px;
+    font-weight:700; color:#3970a4; cursor:pointer; transition: all .16s;
+  }
+  #standard .lang-btn.active{
+    background:#fff; color:#165c93; box-shadow:0 1px 8px #cfe3ff80;
+    border:1px solid #cfe3ff;
+  }
+  #standard .kp-search-input{
+    width: 320px;
+    border: 1.5px solid #b5d5e9;
+    border-radius: 9px;
+    padding: 7px 12px;
+    font-size: .95rem;
+    outline: none;
+    color: #316480;
+    background: #fcfdff;
+    box-shadow: 0 2px 8px #e0e9f721;
+    transition: border 0.16s;
+  }
+  #standard .kp-search-input:focus{ border-color: var(--std-accent); }
+  
+  /* ===== 主体布局 ===== */
+  #standard .kb-body{ display:flex; min-height: 560px; align-items: stretch; }
+  
+  /* ===== 左侧筛选 ===== */
+  #standard .kp-bank-sidebar{
+    background: #f3f7fc;
+    width: 340px; min-width: 340px; max-width: 480px; flex: 0 0 340px;
+    padding: 16px 16px;
+    border-right: 1.8px dashed #c1d9e7;
+    box-shadow: 2px 0 12px #d0eaf712;
+    display: flex; flex-direction: column; gap: 12px;
+    overflow-y:auto;
+  }
+  #standard .kp-bank-sidebar h3{
+    color:#246e89; font-size:1.02rem; margin:0 0 6px 0; font-weight:800;
+  }
+  #standard .cascader-box{ display:flex; flex-direction:column; gap:8px; }
+  #standard .cascader-row{
+    display:flex; flex-direction:column; gap:6px; padding:6px 10px;
+    background:#fff; border:1px solid #e8f0fb; border-radius:12px;
+    box-shadow:0 1px 8px #e6eef955;
+  }
+  #standard .cascader-row label{
+    font-size:.86rem; color:#4b6c8c; font-weight:700;
+  }
+  #standard .cascader-row select{
+    border:1.4px solid #cfe1f3; border-radius:8px; padding:6px 8px;
+    background:#fbfdff; color:#2e5f7c; outline:none; font-size:.92rem;
+  }
+  #standard .cascader-row select:focus{ border-color: var(--std-accent); }
+  
+  /* ===== 右侧题目列表 ===== */
+  #standard .kp-content-panel{
+    flex:1; padding: 16px 18px 18px;
+    background:#fafdff; overflow-x:hidden;
+  }
+  #standard .kp-questions-list{
+    display:flex; flex-direction:column; gap:12px; width:100%;
+  }
+  
+  /* ===== 题目卡片 ===== */
+  #standard .kp-question-card{
+    background: #fff;
+    border-radius: 13px;
+    box-shadow: 0 2px 10px #e2e8f630;
+    border: 1.6px solid #e3e9f6;
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 14px;
+    transition: box-shadow .15s, border-color .14s;
+  }
+  #standard .kp-question-card:hover{
+    box-shadow: 0 4px 16px #bad2ec40; border-color: #a2d5c6;
+  }
+  #standard .kp-question-img{
+    width: 74px; height: 74px; border-radius: 10px;
+    object-fit: contain; background:#f3f6fa; border:1px solid #e4eaf3;
+    box-shadow: 0 1px 5px #dde7f31c;
+  }
+  #standard .kp-question-body{ flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; }
+  
+  /* ===== Question 标签（与 Answer 对齐） ===== */
+  #standard .kp-question-title{
+    position: relative;
+    color:#1f3c62;
+    font-size: var(--q-font);
+    font-weight: 650;        /* 与 Answer 统一 */
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  #standard .kp-question-title .q-label{
+    font-size: var(--a-font);
+    font-weight: 650;
+    color:#175ca3;
+    margin-right: 6px;
+  }
+  
+  /* ===== 标签行（知识点/考点） ===== */
+  #standard .kp-tags{ display: block; }
+  #standard .kp-chip{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--chip-pad-y) var(--chip-pad-x);
+    border-radius: var(--chip-radius);
+    font-size: var(--chip-font);
+    font-weight: 700;
+    border: 1px solid #dbe9f7;
+    color: #1f4d74;
+    background: #f7fbff;
+    box-shadow: 0 1px 3px #e6eef955;
+    margin: 0 0 4px 0;
+    width: fit-content;
+  }
+  #standard .kp-chip .dot{
+    width:6px; height:6px; border-radius:50%; background:#5ca0d3; display:inline-block;
+  }
+  #standard .kp-chip-k{ background: var(--std-chip-k); border-color:#d4e7fb; }
+  #standard .kp-chip-k .dot{ background:#4f8ecc; }
+  #standard .kp-chip-p{ background: var(--std-chip-p); border-color:#cfeae4; color:#165c63; }
+  #standard .kp-chip-p .dot{ background:#2aa585; }
+  
+  /* ===== Answer ===== */
+  #standard .kp-question-answer{
+    font-size: var(--a-font);
+    color:#2b7a47;
+    margin-top: 2px;
+    font-weight: 650;
+  }
+  
+  /* ===== 空态提示 & 注记 ===== */
+  #standard .empty-note{
+    color:#7c94aa; background:#f4f9ff; border:1px dashed #cfe0ee;
+    padding:14px 16px; border-radius:12px;
+  }
+  #standard .list-note{
+    color:#6d7f95; font-size:.86rem; margin-bottom:6px;
+  }
+  
+  /* ===== 响应式 ===== */
+  @media (max-width: 900px) {
+    #standard .kb-body{ flex-direction:column; }
+    #standard .kp-bank-sidebar{ border-right:none; border-bottom:1.5px dashed #c1d9e7; min-width:0; width:auto; }
+    #standard .kp-content-panel{ padding: 14px 4vw 16px 4vw; }
+    #standard .kb-header-right{ width:100%; justify-content:space-between; }
+    #standard .kp-search-input{ flex:1; min-width:180px; }
+  }

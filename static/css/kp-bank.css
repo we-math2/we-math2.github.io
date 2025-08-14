@@ -1,0 +1,219 @@
+/* ================================
+   题库窗口主容器布局
+   ================================ */
+   .kb-window {
+    max-width: 1180px;      /* 或你希望的更大宽度，比如 1320/1400/1500px */
+    margin: 10px auto;      /* 上下留点空，两侧自动居中 */
+    /* 如果需要加阴影、圆角等 */
+    box-shadow: 0 2px 22px #b4cee622;
+    border-radius: 24px;
+    background: #f8fafc;    /* 如果想要背景色 */
+    padding: 0;
+  }
+  
+   
+   
+   .kp-main-container {
+    display: flex;
+    background: #f8fafc;
+    border-radius: 24px;
+    box-shadow: 0 2px 22px #b4cee622;
+    margin: 0 auto;
+    max-width: 1180px;
+    min-height: 560px;
+    overflow: hidden;
+  }
+  
+  /* ================================
+     左侧：知识点树
+     ================================ */
+  .kp-bank-sidebar {
+    background: #f3f7fc;
+    width: 340px !important;
+  min-width: 340px !important;
+  max-width: 480px !important;
+  flex: 0 0 340px !important;
+
+    padding: 26px 18px 26px 22px;
+    border-right: 1.8px dashed #c1d9e7;
+    box-shadow: 2px 0 12px #d0eaf712;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow-y: auto;
+  }
+  
+  .kp-bank-sidebar h3 {
+    color: #246e89;
+    font-size: 1.14em;
+    font-weight: bold;
+    margin-bottom: 13px;
+    letter-spacing: .02em;
+  }
+  
+  .kp-cascader-list,
+  .kp-cascader-list ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .kp-cascader-list li {
+    padding: 6px 0 6px 13px;
+    color: #386393;
+    font-size: 0.97em;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.13s, color 0.13s;
+    margin-bottom: 2px;
+    position: relative;
+  }
+  .kp-cascader-list li.active,
+  .kp-cascader-list li:hover {
+    background: #e7f1fb;
+    color: #197676;
+    font-weight: 600;
+  }
+  .kp-cascader-list ul ul {
+    padding-left: 13px;
+    border-left: 2.2px dotted #e1e7f3;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  
+  /* ================================
+     右侧内容区：题目卡片网格
+     ================================ */
+  .kp-bank-content {
+    flex: 1;
+    padding: 30px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow-x: hidden;
+    background: #fafdff;
+  }
+  
+  .kp-bank-search-box {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .kp-bank-search-box input {
+    width: 300px;
+    border: 1.5px solid #b5d5e9;
+    border-radius: 9px;
+    padding: 8px 13px;
+    font-size: 1em;
+    outline: none;
+    color: #316480;
+    background: #fcfdff;
+    box-shadow: 0 2px 8px #e0e9f721;
+    transition: border 0.16s;
+  }
+  .kp-bank-search-box input:focus {
+    border: 1.5px solid #197676;
+  }
+  
+  /* 题目列表：横向3列卡片，移动端自动1列 */
+  .kp-questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+    padding: 8px 0 18px 0;
+    margin: 0;
+  }
+  
+  /* 移动端自适应 */
+  @media (max-width: 900px) {
+    .kp-main-container { flex-direction: column; }
+    .kp-bank-sidebar { border-right: none; border-bottom: 1.5px dashed #c1d9e7; max-width: none; min-width: 0; }
+    .kp-bank-content { padding: 14px 4vw 16px 4vw; }
+    .kp-questions-list { grid-template-columns: 1fr; }
+  }
+  
+  /* ================================
+     单个题目卡片（横向排版）
+     ================================ */
+     .kp-question-card {
+      background: #fafdff;
+      border-radius: 13px;
+      box-shadow: 0 2px 10px #e2e8f630;
+      border: 1.6px solid #e3e9f6;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 16px 18px 15px 15px;
+      min-height: 110px;
+      transition: box-shadow 0.15s, border-color 0.14s;
+      position: relative;
+    }
+    
+    .kp-question-card:hover {
+      box-shadow: 0 4px 16px #bad2ec40;
+      border-color: #a2d5c6;
+    }
+    
+    .kp-question-img {
+      width: 84px;
+      height: 84px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: #f3f6fa;
+      border: 1px solid #e4eaf3;
+      box-shadow: 0 1px 5px #dde7f31c;
+      margin-right: 16px;
+    }
+    
+    .kp-question-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    
+    .kp-question-title {
+      color: #1f3c62;
+      font-size: 0.95em;
+      font-weight: 600;
+      margin-bottom: 7px;
+      line-height: 1.5;
+      word-break: break-all;
+    }
+    
+    .kp-question-answer {
+      font-size: 0.95em;
+      color: #43863d;
+      margin-top: 3px;
+      opacity: .96;
+      word-break: break-all;
+    }
+  
+  /* ================================
+     卡片底部按钮区（可选）
+     ================================ */
+  .kp-question-actions {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .kp-question-btn {
+    border: none;
+    background: linear-gradient(90deg, #a2d5c6 0%, #e6eef8 100%);
+    color: #197676;
+    font-weight: 600;
+    font-size: 0.97em;
+    border-radius: 7px;
+    padding: 4px 13px;
+    cursor: pointer;
+    box-shadow: 0 1px 6px #d4efea44;
+    transition: background .13s, color .13s;
+  }
+  .kp-question-btn:hover {
+    background: linear-gradient(90deg, #b8e4d8 0%, #f7fafc 100%);
+    color: #164e4b;
+  }
+  
